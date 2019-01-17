@@ -33,7 +33,8 @@ router.get('/logout', function(req, res) {
 
 router.get('/callback',
   passport.authenticate('auth0', {
-    failureRedirect: '/failure'
+    failureRedirect: '/failure',
+    failureFlash: true
   }),
   function(req, res) {
     res.redirect(req.session.returnTo || '/user');
